@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Paris Package</h1>
+   <img src= "{% static 'paris1.jpg' %}" style="width: 100;"></img>
+    <h2> Disneyland - Eiffel Tower - Louvre Museum -  Notre Dame Cathedral - Arc de Triomphe</h2>
+
+    <ul>
+        <li>Round Trip Flights</li>
+        <li>Intercity Car Transfers</li>
+        <li>5 Star Hotels & Houseboat</li>
+        <li>Airport Transfers</li>
+        <li>10 Activities</li>
+        <li>Selected Meals</li>
+      </ul>
+  
+    <h3>Other activities</h3>
+    <ul>
+        <li>Photoshoot in Eiffel Tower</li>
+        <li>Taking a Seine River cruise</li>
+        <li> visiting historical sites</li>
+      </ul>  
+   <button type="submit"><a href="{% url 'booking' %}"> Book Now</a></button>
+</body>
+</html>

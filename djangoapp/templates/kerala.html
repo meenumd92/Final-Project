@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Kerala Package</h1>
+   <img src= "{% static 'kerala1.jpg' %}" style="width: 100;"></img>
+    <h2>Cochin - Munnar - Thekkady - Alleppey</h2>
+
+    <ul>
+        <li>Round Trip Flights</li>
+        <li>Intercity Car Transfers</li>
+        <li>5 Star Hotels </li>
+        <li>Airport Transfers</li>
+        <li>13 Activities</li>
+        <li>Selected Meals</li>
+      </ul>
+  
+    <h3>Other activities</h3>
+    <ul>
+        <li>Houseboat Day Cruise</li>
+        <li>Boating at Periyar Lake</li>
+        <li> Kathakali Dance Show</li>
+      </ul>  
+   <button type="submit"><a href="{% url 'booking' %}"> Book Now</a></button>
+</body>
+</html>

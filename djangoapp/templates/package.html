@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.gallery {
+  border: 1px solid #afadad;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.button.hover {
+    background-color: aqua;
+    color: #777;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+  color:#afadad;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.navbar p {
+  float: left;
+  font-size: 16px;
+  color: rgb(19, 19, 19);
+  text-align: right;
+  padding: 10px;
+  text-decoration: none;
+}
+h1{
+    text-align: center;
+    background-color: rgb(9, 62, 89);
+    color: white;
+    
+}
+
+div.table{
+  color :rgb(10, 79, 148);
+  border: 0ch;
+}
+
+
+    </style>
+</head>
+<body>
+  <a href="{% url 'home' %}">Back to Home</a>
+    <h1>Top Packages</h1>
+    
+    <div class="responsive">
+ 
+        <div class="gallery">
+           <img src="{% static 'kerala.jpg' %}" style="width:100%"></img>
+           <div class="table">
+            <table width="300">
+              <tr>
+                <td style="text-align:left">Kerala</td>
+                
+                <td style="text-align: right;">45000.00</td>
+              </tr>
+              <tr>
+                <td style="text-align:left">Holiday Package</td>
+                <td style="text-align:right">Starting Price</td>
+              </tr>
+            </table>
+            
+            </div>
+         <div class="button">
+            <button><a href="{% url 'kerala' %}" >Read more</a></button>
+         </div>
+         </div>
+        </div>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">
+          
+            <img src="{% static 'kashmir.jpeg' %}" style="width:100%"></img>
+            <div class="table">
+              <table width="300">
+                <tr>
+                  <td style="text-align:left">Kashmir</td>
+                  
+                  <td style="text-align: right;">60000.00</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left">Holiday Package</td>
+                  <td style="text-align:right">Starting Price</td>
+                </tr>
+              </table>
+              
+              </div>
+            <div class="button">
+                <button><a href="{% url 'kashmir' %}" > Read more </a></button>
+             </div>
+        </div>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">
+            <img src="{% static 'burjj.jpeg' %}" style="width:100%" ></img>
+            <div class="table">
+              <table width="300">
+                <tr>
+                  <td style="text-align:left">Dubai</td>
+                  
+                  <td style="text-align: right;">95000.00</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left">Holiday Package</td>
+                  <td style="text-align:right">Starting Price</td>
+                </tr>
+              </table>
+              
+              </div>
+              <div class="button">
+                <button><a href="{% url 'dubai' %}" > Read more </a></button>
+             </div>
+        </div>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">  
+            <img src="{% static 'eiffel.jpg' %}"style="width:100%"></img>
+            <div class="table">
+              <table width="300">
+                <tr>
+                  <td style="text-align:left">Paris</td>
+                  
+                  <td style="text-align: right;">95000.00</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left">Holiday Package</td>
+                  <td style="text-align:right">Starting Price</td>
+                </tr>
+              </table>
+              
+              </div>
+            <div class="button">
+              <button><a href="{% url 'paris' %}" > Read more </a></button>
+         </div>
+        </div>
+      </div>
+    
+   
+      
+</body>
+</html>

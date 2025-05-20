@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>home</title>
+    {% endblock title %}
+   
+   <style>
+    h1{
+   color:rgb(254, 254, 254);
+   font-family:"Lucida Console", "Courier New", monospace;
+     }
+     .navbar {
+  overflow: hidden;
+  background-color: rgb(9, 62, 89);
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #a1cbe4;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+     
+     .top-left{
+      position: absolute;
+      top: 50px;
+      left: 16px;
+      font-size: large;
+     }
+     
+     
+     .para{
+      position: absolute;
+      left: 16px;
+      top: 120px;
+      color: aliceblue;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     }
+     img{
+      opacity:75%;
+     }
+     .logout{
+      text-align: right;
+     }
+  
+     
+</style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'contact' %}">Contact</a> 
+    
+    <div class="dropdown">
+      <button class="dropbtn">Packages
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="{% url 'package' %}">Top Packages</a>
+        <a href="{% url 'approvedpack' %}">Budget Friendly</a>     
+  </div>
+  </div>
+    <div class="dropdown">
+      <button class="dropbtn">SignUp 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+          <a href="{% url 'signup' %}">User</a>
+          <a href="{% url 'vendor' %}">Vendor</a>
+      </div>
+    </div> 
+
+    <div class="dropdown">
+      <button class="dropbtn">Login
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="{% url 'signin' %}">User</a>
+        <a href="{% url 'vendsignin' %}">Vendor</a>     
+  </div>
+  </div>
+  <div class="Logout">
+      <a href="{% url 'logout' %}">Logout</a> 
+  </div>
+  
+  </div>
+  
+
+
+  {% block content %}
+<img src="{% static 'sor.jpeg' %}" style="width:100%"></img>
+<div class="top-left"><h1>WAYFARER</h1></div>
+<div class="para"> If you never go.. You'll never know.. </div>
+{% endblock %}
+
+
+</body>
+   
+
+    
+
+</html>

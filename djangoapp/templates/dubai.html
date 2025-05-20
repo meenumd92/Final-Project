@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Dubai Package</h1>
+   <img src= "{% static 'dubai.jpg' %}" style="width: 100;"></img>
+    <h2> Burj Khalifa - Dubai Mall - Dubai Miracle Garden - Jumeirah Beach</h2>
+
+    <ul>
+        <li>Round Trip Flights</li>
+        <li>Intercity Car Transfers</li>
+        <li>5 Star Hotels & Houseboat</li>
+        <li>Airport Transfers</li>
+        <li>9 Activities</li>
+        <li>Selected Meals</li>
+      </ul>
+  
+    <h3>Other activities</h3>
+    <ul>
+        <li>Photoshoot in Dessert</li>
+        <li>Cammel Safari</li>
+        <li> Visit to Dubai parks and resorts</li>
+      </ul>  
+   <button type="submit"><a href="{% url 'booking' %}"> Book Now</a></button>
+</body>
+</html>
