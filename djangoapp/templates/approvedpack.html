@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h1{
+    text-align: center;
+    background-color: rgb(9, 62, 89);
+    color: white;
+    
+}
+table, th, td {
+  border: 1px solid;
+}
+
+table {
+  width: 100%;
+}
+    </style>
 </head>
 <body>
-    <h2>Budget Friendly Package</h2>
+    <h1>Budget Friendly Package</h1>
     <table>
         <thead>
             <tr>
@@ -24,10 +39,13 @@
                 <td>{{ i.package }}</td>
                 <td>{{ i.days }}</td>
                 <td>{{ i.img }}</td>
+                <td> <button type="submit"><a href="{% url 'booking' %}"> Book Now</a></button>
+                </td>
                 
                     {% csrf_token %}
                 
             </tr>
+        
             {% endfor %}
         </tbody>
     </table>

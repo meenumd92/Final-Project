@@ -2,13 +2,12 @@ from django.urls import path
 from .import views as v
 
 
+
 urlpatterns =[
     path('',v.home,name='home'),
     path('package/',v.package,name='package'),
     path('about/',v.about,name='about'),
     path('contact/',v.contact,name='contact'),
-    path('signup/',v.signup,name='signup'),
-    path('signin/',v.signin,name='signin'),
     path('logout/',v.usrlogout,name='logout'),
     path('vendor/',v.vendor,name='vendor'),
     path('vendsignin/',v.vendsignin,name='vendsignin'),
@@ -19,4 +18,8 @@ urlpatterns =[
     path('dubai/',v.dubai,name='dubai'),
     path('paris/',v.paris,name='paris'),
     path('approvedpack/',v.approvedpack,name='approvedpack'),
+    path('poplog/',v.poplog,name='poplog'),
+    path('userreg/', v.signup_view, name='userreg'),
+    path('uselog/', v.login_view, name='uselog'),
+   
 ]

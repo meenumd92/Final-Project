@@ -94,7 +94,17 @@
      .logout{
       text-align: right;
      }
-  
+  footer
+  {
+    overflow: hidden;
+    background-color: rgb(9, 62, 89);
+  }
+  h2{
+    color: white;
+  }
+  td{
+    color: white;
+  }
      
 </style>
 </head>
@@ -118,7 +128,7 @@
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-          <a href="{% url 'signup' %}">User</a>
+          <a href="{% url 'userreg' %}">User</a>
           <a href="{% url 'vendor' %}">Vendor</a>
       </div>
     </div> 
@@ -128,7 +138,7 @@
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="{% url 'signin' %}">User</a>
+        <a href="{% url 'uselog' %}">User</a>
         <a href="{% url 'vendsignin' %}">Vendor</a>     
   </div>
   </div>
@@ -146,7 +156,37 @@
 <div class="para"> If you never go.. You'll never know.. </div>
 {% endblock %}
 
-
+<footer>
+  <h2>Contact Us</h2> 
+  <table>
+   <tr>
+       <td>Name of the Company:</td>
+       <td>Wayferer Private Limited
+       </td>
+   </tr>
+   <tr>
+       <td>CIN:</td>
+       <td>W63040200PRC090800</td>
+   </tr>
+   <tr>
+       <td>
+           Registered Address:</td>
+       <td>5th Floor, Tower A/B/C, Epitome Building No. 6, Kochi City,  Ernakulam Kerala - 122234
+       </td>
+   </tr>
+   <tr>
+       <td>Telephone:</td>
+       <td>+91 9923457891</td>
+   </tr>
+   <tr>
+       <td>
+           Email:
+           </td>
+       <td>Wayferertrip@gmail.com
+       </td>
+   </tr>
+  </table>
+</footer>
 </body>
    
 

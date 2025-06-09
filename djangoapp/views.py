@@ -1,21 +1,25 @@
 from django.shortcuts import render,redirect
 from .forms import *
 from django.contrib.auth import authenticate,login,logout
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+#from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # Create your views here.
 
 def home(request):
     return render(request,"home.html")
-#@login_required
+
 def package(request):
     return render(request, "package.html")
 
+
 def about(request):
     return render(request, "about.html")
+
 
 def contact(request):
     return render(request, "contact.html")
@@ -35,35 +39,7 @@ def kerala(request):
 def kashmir(request):
     return render(request, "kashmir.html")
 
-def signup(request):
-    if request.method == 'POST':
-       ftname = request.POST.get('fname')
-       ltname = request.POST.get('lname')
-       usename = request.POST.get('usrname')
-       contat = request.POST.get('numbr')
-       psw = request.POST.get('paswd')
-       ema = request.POST.get('email')
-       usr = Tourusr(firstname =ftname,lastname=ltname,username=usename,contact=contat,password=psw,email=ema)
-       usr.save()
-       return redirect('home')
-    else:
-        return render (request,"signup.html")
-    
-def signin(request):
-    if request.method == 'POST':
-         form = SigninForm (request.POST)
-         if form.is_valid():
-             usrnm = Tourusr.objects.get('usrname')
-             pswd = Tourusr.objects.get('paswd')
-             usr = form.get_user(username=usrnm,password=pswd)
-             if usr is not None:
-                 login(request,usr)
-                 return redirect('home')
-             else:
-                 return "invalid username or password"
-    else:
-        form = SigninForm ()
-    return render (request,"signin.html",{'form':form})
+
        
   
 def vendor(request):
@@ -75,7 +51,7 @@ def vendor(request):
        ven.save()
        return redirect('home')
     else:
-        return render (request,"vendor_reg.html")
+        return render (request,"vendor.html")
     
 def vendsignin(request):
     if request.method == 'POST':
@@ -91,7 +67,7 @@ def vendsignin(request):
                  return "invalid email or password"
     else:
         form = SigninForm ()
-    return render (request,"vendor_signin.html",{'form':form})
+    return render (request,"vendsignin.html",{'form':form})
 
 
 def packreg(request):
@@ -110,8 +86,33 @@ def usrlogout(request):
     logout(request) 
     return redirect('home')
 
-
+@login_required
 def approvedpack(request):
     st = PackReg.objects.all()
     st = PackReg.objects.filter(approval="True")
     return render(request,"approvedpack.html",{'item':st})
+def poplog(request):
+    return render(request, "poplog.html")
+
+
+def signup_view(request):
+  if request.method == 'POST':
+    form = RegisterForm(request.POST)
+    if form.is_valid():
+       user = form.save()
+       login(request, user)
+       return redirect('home')  # Redirect to home page after signup
+  else:
+    form = RegisterForm()
+    return render(request, 'userreg.html', {'form': form})
+
+def login_view(request):
+  if request.method == 'POST':
+     form = SigninForm(request, data=request.POST)
+     if form.is_valid():
+       user = form.get_user()
+       login(request, user)
+       return redirect('package')  # Redirect to home page after login
+  else:
+    form = SigninForm()
+    return render(request, 'uselog.html', {'form': form})
