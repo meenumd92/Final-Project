@@ -1,11 +1,11 @@
 from django.shortcuts import render,redirect
 from .forms import *
+from .forms import RegisterForm
 from django.contrib.auth import authenticate,login,logout
-from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-#from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # Create your views here.
@@ -15,7 +15,6 @@ def home(request):
 
 def package(request):
     return render(request, "package.html")
-
 
 def about(request):
     return render(request, "about.html")
@@ -39,7 +38,30 @@ def kerala(request):
 def kashmir(request):
     return render(request, "kashmir.html")
 
+def userreg(request):
+  if request.method == 'POST':
+    form = RegisterForm(request.POST)
+    if form.is_valid():
+       form.save()
+       return redirect('home')  # Redirect to home page after signup
+    else:
+        return render(request,'userreg.html', {'form': form})
 
+  else:
+    form = RegisterForm()
+  return render(request,'userreg.html', {'form': form})
+  
+
+def uselog(request):
+  if request.method == 'POST':
+     form = SigninForm(request, data=request.POST)
+     if form.is_valid():
+       user = form.get_user()
+       login(request, user)
+       return redirect('package')  # Redirect to home page after login
+  else:
+    form =SigninForm()
+  return render(request, 'uselog.html', {'form': form})
        
   
 def vendor(request):
@@ -91,28 +113,14 @@ def approvedpack(request):
     st = PackReg.objects.all()
     st = PackReg.objects.filter(approval="True")
     return render(request,"approvedpack.html",{'item':st})
-def poplog(request):
-    return render(request, "poplog.html")
 
 
-def signup_view(request):
-  if request.method == 'POST':
-    form = RegisterForm(request.POST)
-    if form.is_valid():
-       user = form.save()
-       login(request, user)
-       return redirect('home')  # Redirect to home page after signup
-  else:
-    form = RegisterForm()
-    return render(request, 'userreg.html', {'form': form})
-
-def login_view(request):
-  if request.method == 'POST':
-     form = SigninForm(request, data=request.POST)
-     if form.is_valid():
-       user = form.get_user()
-       login(request, user)
-       return redirect('package')  # Redirect to home page after login
-  else:
-    form = SigninForm()
-    return render(request, 'uselog.html', {'form': form})
+def register(request):
+    if request.method == 'POST':
+       form = RegisterForm(request.POST)
+       if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = RegisterForm()
+    return render (request,"register.html",{'form':form})

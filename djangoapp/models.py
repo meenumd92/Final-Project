@@ -13,6 +13,5 @@ class PackReg(models.Model):
     amount = models.IntegerField(null=True)
     package =models.TextField(max_length=500)
     days = models.IntegerField(null=True)
-    img = models.ImageField(upload_to='gallery/' ,null=True)
     approval = models.BooleanField(default=False)
 
